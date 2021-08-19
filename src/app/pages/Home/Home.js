@@ -5,8 +5,10 @@ import { SearchIcon } from '@chakra-ui/icons'
 import './Home.scss'
 import SearchBar from '../../container/SearchBar/SearchBar';
 import PokemonList from '../../container/PokemonList/PokemonList';
+import LoadingSpinner from "../../component/LoadingSpinner/LoadingSpinner";
+
 const Home=()=>{
-    const [isLoaded,setIsLoaded]=useState(true);
+    const [isLoading,setIsLoading]=useState(true);
     const [items,setItems]=useState('');
     const [error,setError]=useState('');
 
@@ -16,14 +18,14 @@ const Home=()=>{
           .then(
             (result) => {
                 console.log(result)
-              setIsLoaded(false);
+                setIsLoading(false);
               setItems(result);
             },
             // Note: it's important to handle errors here
             // instead of a catch() block so that we don't swallow
             // exceptions from actual bugs in components.
             (error) => {
-              setIsLoaded(false);
+              setIsLoading(false);
               setError(error);
             }
           )
@@ -35,6 +37,7 @@ const Home=()=>{
     }
 return (
     <React.Fragment>
+          <LoadingSpinner isLoading={isLoading}/>
     <div className="container" style={{paddingTop: '2rem'}} >
         <div className="column">
            
