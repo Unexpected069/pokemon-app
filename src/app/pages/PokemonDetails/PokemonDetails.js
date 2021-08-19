@@ -1,9 +1,10 @@
 import React,{useState,useEffect} from 'react';
 import PokemonDetailsComponent from '../../component/PokemonDetails/PokemonDetailsComponent';
 import PokemonSlider from "../../component/PokemonSlider/PokemonSlider";
+import LoadingSpinner from "../../component/LoadingSpinner/LoadingSpinner";
 
 const PokemonDetails = ({match}) => {
-       const [isLoaded,setIsLoaded]=useState(true);
+       const [isLoading,setIsLoading]=useState(true);
        const [items,setItems]=useState('');
        const [error,setError]=useState('');
 
@@ -14,14 +15,14 @@ const PokemonDetails = ({match}) => {
           .then(
             (result) => {
                 console.log(result)
-              setIsLoaded(false);
+                setIsLoading(false);
               setItems(result);
             },
             // Note: it's important to handle errors here
             // instead of a catch() block so that we don't swallow
             // exceptions from actual bugs in components.
             (error) => {
-              setIsLoaded(false);
+              setIsLoading(false);
               setError(error);
             }
           )
@@ -31,6 +32,8 @@ const PokemonDetails = ({match}) => {
 
 
     return (
+      <React.Fragment>
+        <LoadingSpinner isLoading={isLoading}/>
         <div className="container" style={{padding: '6rem 0'}}>
             <div className="card">
                 {items?
@@ -41,6 +44,7 @@ const PokemonDetails = ({match}) => {
                 </div>:null}
             </div>
         </div>
+        </React.Fragment>
     );
 };
 
