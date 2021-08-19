@@ -4,12 +4,12 @@ import { SearchIcon } from '@chakra-ui/icons'
 import { Pokemon_List } from '../../data/dummyData';
 import Pokemon from '../../component/Pokemon/Pokemon';
 
-const PokemonList=()=>{
+const PokemonList=({results})=>{
     return(
         <div className="col-lg-9">
         <div className="row">
 
-            {Pokemon_List.results.map((pokemon,index) =>{
+            {results.map((pokemon,index) =>{
                 let classes = `col-lg-4 col-md-6 mb-4`;
                 return (<div className={classes}>
                     <Pokemon 
