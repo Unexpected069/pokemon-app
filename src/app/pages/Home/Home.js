@@ -10,8 +10,7 @@ const Home=()=>{
     const [items,setItems]=useState('');
     const [error,setError]=useState('');
 
-    
-   /*   useEffect(() => {
+   useEffect(() => {
       fetch("https://pokeapi.co/api/v2/pokemon")
           .then(res => res.json())
           .then(
@@ -28,7 +27,7 @@ const Home=()=>{
               setError(error);
             }
           )
-      }, [])*/
+      }, [])
 
     const handleClick=()=>{
 
@@ -40,8 +39,9 @@ return (
         <div className="column">
            
            <SearchBar/>
-
-            <PokemonList/>
+              {items?
+            <PokemonList {...items}/>
+            :null}
 
         </div>
     </div>
