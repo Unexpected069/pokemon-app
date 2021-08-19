@@ -1,0 +1,18 @@
+.searchContainer{
+
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    font: size 12px;
+
+    &_Icon {
+        padding:5px;
+        height: '100%';
+        position: 'absolute';
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+}
