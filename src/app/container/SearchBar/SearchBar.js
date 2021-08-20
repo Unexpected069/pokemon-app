@@ -3,7 +3,7 @@ import { Container,Box,Input,InputGroup,Button,InputRightElement } from "@chakra
 import { SearchIcon } from '@chakra-ui/icons'
 import './SearchBar.scss'
 
-const SearchBar=()=>{
+const SearchBar=({onChange})=>{
 
     const handleClick=()=>{
 
@@ -21,7 +21,9 @@ const SearchBar=()=>{
                     <Input
                         pr="4.5rem"
                         type={"text"}
-                        placeholder="Search Pokemon here..." />
+                        placeholder="Search Pokemon here..." 
+                        onChange={onChange}
+                        />
                      <InputRightElement width="4.5rem">
                         <Button h="1.75rem" size="sm" onClick={handleClick}>
                          <SearchIcon/>
