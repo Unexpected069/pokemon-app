@@ -4,7 +4,9 @@ import { Switch, Route, Redirect,BrowserRouter, useHistory, useLocation } from "
 import { ChakraProvider,extendTheme } from "@chakra-ui/react"
 import Home from "./pages/Home/Home";
 import PokemonDetails from "./pages/PokemonDetails/PokemonDetails";
+import MyTeam from "./pages/MyTeam/MyTeam";
 import Header from "./component/Header/Header";
+import PokemonContextProvider from './context/PokemonContext';
 
 
 const colors = {
@@ -21,17 +23,22 @@ const theme = extendTheme({ colors })
 const App = () => {
     return (
         <div>
-        <ChakraProvider theme={theme}>
-            <BrowserRouter>
-                <Header/>
-             <Switch>
-             <Route exact path={'/'} render={() => { return <Redirect to={'/home'}/> }}/>
-             <Route exact path='/home' exact component={() => <Home  />} />
-             <Route exact path={'/pokemon/:id'} exact component={(props) => <PokemonDetails {...props} />} />
-       
-            </Switch>
-         </BrowserRouter>
-         </ChakraProvider>
+          <PokemonContextProvider>
+            <ChakraProvider theme={theme}>
+                <BrowserRouter>
+            
+                    <Header/>
+                
+                <Switch>
+                <Route exact path={'/'} render={() => { return <Redirect to={'/home'}/> }}/>
+                <Route exact path='/home' exact component={() => <Home  />} />
+                <Route exact path={'/pokemon/:id'} exact component={(props) => <PokemonDetails {...props} />} />
+                <Route exact path={'/myTeam'} exact component={() => <MyTeam />} /> 
+                
+                </Switch>
+            </BrowserRouter>
+            </ChakraProvider>
+         </PokemonContextProvider>
         </div>
 
     );
