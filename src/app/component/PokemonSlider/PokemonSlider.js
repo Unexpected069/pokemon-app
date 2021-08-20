@@ -58,7 +58,7 @@ const ProductSlider = ({sprites}) => {
                 </div>
                 <div className="img-small-wrap">
                     {images.map((img , i ) => (
-                        <div className="item-gallery" onClick={() => {changeImage(i)}}><img src={img}/></div>
+                        <div key={i} className="item-gallery" onClick={() => {changeImage(i)}}><img src={img}/></div>
                     ))}
                 </div>
             </article>

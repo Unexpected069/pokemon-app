@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useContext,useState} from "react";
 import {
   Box,
   Stack,
@@ -6,50 +6,47 @@ import {
   Flex,
   Text,
   Button,
-  useDisclosure
+  useDisclosure,
 } from "@chakra-ui/react";
 import { HamburgerIcon } from "@chakra-ui/icons";
-
-
+import { PokemonContext } from '../../context/PokemonContext';
+import {Link} from 'react-router-dom';
+import './Header.scss'
+import Logo from '../Logo/Logo';
+import MenuLinks from "../MenuLinks/MenuLinks";
+import MenuToggle from '../MenuToggle/MenuToggle'
 const Header = (props) => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  const handleToggle = () => (isOpen ? onClose() : onOpen());
+  const { pokemon } = useContext(PokemonContext);
+  const [isOpen, setIsOpen] = useState(false)
+
+  const toggle = () => setIsOpen(!isOpen)
+
 
   return (
     <Flex
-      as="nav"
-      align="center"
-      justify="space-between"
-      wrap="wrap"
-      padding={6}
-      bg="teal.500"
-      color="white"
-      {...props}
-    >
-      <Flex align="center" mr={5}>
-        <Heading as="h1" size="lg" letterSpacing={"tighter"}>
-         Pokemon
-        </Heading>
-      </Flex>
+    as="nav"
+    align="center"
+    justify="space-between"
+    wrap="wrap"
+    w="100%"
+    mb={8}
+    p={8}
+    bg="teal.500"
+    color={["white", "white", "primary.700", "primary.700"]}
+    {...props}>
 
-      <Box display={{ base: "block", md: "none" }} onClick={handleToggle}>
-        <HamburgerIcon />
-      </Box>
+    <Logo
+        w="100px"
+        color={["red", "yellow", "primary.500", "primary.500"]}
+      />
+      <MenuToggle toggle={toggle} isOpen={isOpen} />
+      <MenuLinks isOpen={isOpen} />
 
-      <Stack
-        direction={{ base: "column", md: "row" }}
-        display={{ base: isOpen ? "block" : "none", md: "flex" }}
-        width={{ base: "full", md: "auto" }}
-        alignItems="center"
-        flexGrow={1}
-        mt={{ base: 4, md: 0 }}>
-        <Text>My Team</Text>
-      
-      </Stack>
-
-     
-    </Flex>
+  </Flex>
   );
 };
 
 export default Header;
+
+
+
