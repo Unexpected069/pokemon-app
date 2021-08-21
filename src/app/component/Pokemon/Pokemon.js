@@ -25,7 +25,7 @@ const Pokemon = ({
 
                     <div>
                     <Link
-                     to={`/pokemon/${id}`}
+                     to={`/pokemon/${title}`}
                      className="btn btn-success pokemon__add-to-cart">View Details</Link>
                     </div>
                 </div>
