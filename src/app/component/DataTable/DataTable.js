@@ -89,10 +89,7 @@ const DataTable=()=> {
             return (
               <Tr {...row.getRowProps()}>
 
-                     {
-                     /*<Button h="1.75rem" size="sm" onClick={()=>{}}>
-                         <SearchIcon/>{row.values.fromUnit+' dwdw'}
-                        </Button>*/}
+
 
                             
                 {row.cells.map((cell) => (
@@ -108,11 +105,12 @@ const DataTable=()=> {
                                     justifyContent:'space-between'}}>
                                         
                             <Link
-                            to={`/pokemon/${row.values.id}`}>
+                            to={`/pokemon/${row.values.name}`}>
                             <HamburgerIcon/>
                             </Link>
 
                                 <Button h="1.75rem" size="sm"
+                                 colorScheme="red"
                                  onClick={()=>onClickDelete(row.values.id)}>
                                 <DeleteIcon/>
 
