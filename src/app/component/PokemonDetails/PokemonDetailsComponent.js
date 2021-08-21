@@ -4,7 +4,8 @@ import {CheckIcon,AddIcon,DeleteIcon} from '@chakra-ui/icons'
 import { PokemonContext } from '../../context/PokemonContext';
 
 
-const PokemonDetailsComponent = ({
+const PokemonDetailsComponent = 
+                                ({
                                 id,
                                 abilities,
                                 base_experience,
@@ -43,7 +44,10 @@ const PokemonDetailsComponent = ({
             sprites,
             stats,
             types}}); //dispatch function will pass the action up to PokemonContext
-      console.log('Added successfully !!!');
+            
+            alert('Added successfully !!!');
+
+
         }
         else alert('Maximum Limit: 6 Pokemon only !!!')
  };
@@ -55,6 +59,7 @@ const PokemonDetailsComponent = ({
     alert('Remove sucessfully !!!');
 
  }
+
 
 const renderAbilities=()=>{
     return(
@@ -135,11 +140,15 @@ const renderMoves=()=>{
                             {!isExisting?
                             <Button
                             onClick={onClickAdd}
-                            leftIcon={<AddIcon />} colorScheme="teal" variant="solid">  Add to my team </Button>
+                            leftIcon={<AddIcon />} 
+                            bg={'teal'}
+                            colorScheme="teal"
+                             variant="solid">  Add to my team </Button>
                                 :<Button 
                                 onClick={onClickRemove}
                                 leftIcon={<DeleteIcon color="red.500"/>} 
                                 color="#d3d3d3" 
+                                
                                 variant="solid">
                                     <div style={{color:'#000'}}>
                                     Remove from my team
