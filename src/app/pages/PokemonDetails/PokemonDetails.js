@@ -15,13 +15,13 @@ const PokemonDetails = ({match}) => {
 
          useEffect(() => {
       
-            fetch(`https://pokeapi.co/api/v2/pokemon/${match.params.id}`)
+            fetch(`https://pokeapi.co/api/v2/pokemon/${match.params.pokemonName}`)
                 .then(res => res.json())
                 .then(
                   (result) => {
                       console.log(result)
                       setIsLoading(false);
-                    setItems(result);
+                     setItems(result);
                   },
                   // Note: it's important to handle errors here
                   // instead of a catch() block so that we don't swallow
@@ -46,7 +46,7 @@ const PokemonDetails = ({match}) => {
                 <div className="row">
                      <PokemonSlider  {...items}/>
                    
-                    <PokemonDetailsComponent id={match.params.id} {...items}/>
+                    <PokemonDetailsComponent  {...items}/>
                 </div>:null}
             </div>
         </div>
