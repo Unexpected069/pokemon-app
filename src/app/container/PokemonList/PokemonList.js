@@ -1,7 +1,6 @@
 import React, {Component, useState,useContext, useEffect} from 'react';
-import { Container,Box,Input,InputGroup,Button,InputRightElement } from "@chakra-ui/react"
-import { SearchIcon } from '@chakra-ui/icons'
-import { Pokemon_List } from '../../data/dummyData';
+
+
 import Pokemon from '../../component/Pokemon/Pokemon';
 
 const PokemonList=({results})=>{
@@ -20,12 +19,7 @@ const PokemonList=({results})=>{
                     </div>)
             })}
         </div>
-        <div className="d-flex justify-content-end">
-           {
-
-               ///PAGINATION HERE
-           }
-        </div>
+      
     </div>
     )
 }
