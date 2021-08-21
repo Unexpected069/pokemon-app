@@ -1,8 +1,11 @@
 # Pokemon Web App User Stories
 
-A simple full-stack web application using React JS
+you can access the demo live here 
 
-you can access the demo live here # https://pokemon-app-323606.uc.r.appspot.com/home
+# https://pokemon-app-323606.uc.r.appspot.com/home
+
+
+A simple full-stack web application using React JS
 
 Home
 As a user I want to search for a random Pokemon
