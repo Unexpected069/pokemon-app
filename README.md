@@ -1,7 +1,5 @@
 # Pokemon Web App User Stories
 
-you can access the demo live here 
-# https://pokemon-app-323606.uc.r.appspot.com/home
 
 A simple full-stack web application using React JS
 
