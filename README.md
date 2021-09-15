@@ -17,7 +17,7 @@ As a user I want to remove the pokemon from my team if they are part of it
 
 ![pokemonDetails](https://user-images.githubusercontent.com/29629442/132127095-78e4734e-793d-4eca-b2a2-14106c9b0ee5.PNG)
 
-Your Pokemon  
+My Team  
 As a user I want to see all the pokemon on my team  
 As a user I want to view the selected pokemon on my team  
 As a user I want to add the pokemon to my team (maximum of 6 pokemon per user)  
